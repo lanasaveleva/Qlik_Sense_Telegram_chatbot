@@ -1,0 +1,18 @@
+set vTBot_Token=; //Bot token 
+set vTBot_ChatID=; //Chat ID
+set vWebConnection=; // Name of Web connection
+set vTBot_Message=; // Message text
+
+TG_Message:
+LOAD
+1
+FROM [lib://$(vWebConnection)]
+(url is [https://api.telegram.org/bot$(vTBot_Token)/sendMessage?chat_id=$(vTBot_ChatID)&text=$(vTBot_Message)&parse_mode=HTML]);
+
+drop table TG_Message;
+
+//Clear variables
+set vTBot_Token=;
+set vTBot_ChatID=;
+set vTBot_Message=;
+set vTBot_Message=;
